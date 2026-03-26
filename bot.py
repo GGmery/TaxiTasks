@@ -29,38 +29,43 @@ def cargar_tareas():
 # Evento para responder a menciones sobre tareas próximas
 @bot.event
 async def on_message(message):
-    if message.author.bot:
-        return
-    # Si mencionan al bot y preguntan por tareas próximas
-    if bot.user in message.mentions and ("tarea" in message.content.lower() or "tareas" in message.content.lower()):
-        ahora = datetime.now()
-        tareas = cargar_tareas()
-        dia_actual = ahora.strftime('%A')
-        lista_tarea = tareas.get(dia_actual, [])
-        proximas = []
-        for tarea in lista_tarea:
-            hora_tarea = datetime.strptime(tarea['hora'], '%H:%M').replace(year=ahora.year, month=ahora.month, day=ahora.day)
-            minutos = int((hora_tarea - ahora).total_seconds() // 60)
-            if 0 <= minutos < 60:
-                proximas.append((minutos, tarea))
-        if proximas:
-            proximas.sort()
-            respuesta = "🟢 Sí, en las próximas tareas: \n"
-            for minutos, tarea in proximas:
-                tipo = tarea.get('tipo', 'general')
-                emoji = {
-                    'taxi': '🚕',
-                    'bus_interurbano': '🚌',
-                    'bus_urbano': '🚌',
-                    'cliente_vip': '🥂',
-                    'mudanza': '🚚'
-                }.get(tipo, '📋')
-                respuesta += f"{emoji} {tarea['nombre']} en {minutos} minuto{'s' if minutos != 1 else ''} (a las {tarea['hora']})\n"
-            await message.reply(respuesta)
+    try:
+        if message.author.bot:
+            return
+        # Si mencionan al bot y preguntan por tareas próximas
+        if bot.user in message.mentions and ("tarea" in message.content.lower() or "tareas" in message.content.lower()):
+            ahora = datetime.now()
+            tareas = cargar_tareas()
+            dia_actual = ahora.strftime('%A')
+            lista_tarea = tareas.get(dia_actual, [])
+            proximas = []
+            for tarea in lista_tarea:
+                hora_tarea = datetime.strptime(tarea['hora'], '%H:%M').replace(year=ahora.year, month=ahora.month, day=ahora.day)
+                minutos = int((hora_tarea - ahora).total_seconds() // 60)
+                if 0 <= minutos < 60:
+                    proximas.append((minutos, tarea))
+            if proximas:
+                proximas.sort()
+                respuesta = "🟢 Sí, en las próximas tareas: \n"
+                for minutos, tarea in proximas:
+                    tipo = tarea.get('tipo', 'general')
+                    emoji = {
+                        'taxi': '🚕',
+                        'bus_interurbano': '🚌',
+                        'bus_urbano': '🚌',
+                        'cliente_vip': '🥂',
+                        'mudanza': '🚚'
+                    }.get(tipo, '📋')
+                    respuesta += f"{emoji} {tarea['nombre']} en {minutos} minuto{'s' if minutos != 1 else ''} (a las {tarea['hora']})\n"
+                await message.reply(respuesta)
+            else:
+                await message.reply("🔴 No hay tareas programadas en la próxima hora.")
         else:
-            await message.reply("🔴 No hay tareas programadas en la próxima hora.")
-    else:
-        await bot.process_commands(message)
+            await bot.process_commands(message)
+    except Exception as e:
+        print(f"[on_message ERROR] {e}")
+        import traceback
+        traceback.print_exc()
 import discord
 from discord.ext import commands, tasks
 import json
@@ -185,46 +190,47 @@ def obtener_embed_tarea(tarea, hora_actual):
 @tasks.loop(minutes=1)
 async def revisar_tareas():
     """Revisa cada minuto si hay tareas que enviar"""
-    if CHANNEL_ID is None:
-        return
-    
-    tareas = cargar_tareas()
-    ahora = datetime.now()
-    dia_actual = ahora.strftime('%A').lower()
-    hora_actual = ahora.strftime('%H:%M')
-    
-    canal = bot.get_channel(CHANNEL_ID)
-    if canal is None:
-        return
-    
-    # Revisar cada día
-    for dia, lista_tareas in tareas.items():
-        if dia.lower() == dia_actual:
-            for tarea in lista_tareas:
-                if tarea['hora'] == hora_actual and not tarea.get('enviado', False):
-                    # Crear embed personalizado
-                    embed = obtener_embed_tarea(tarea, hora_actual)
-                    
-                    # Mencionar rol si está configurado
-                    menciones = ""
-                    if ROLE_ID:
-                        rol = bot.get_guild(canal.guild.id).get_role(ROLE_ID) if canal.guild else None
-                        menciones = f"{rol.mention} " if rol else ""
-                    
-                    mensaje_texto = f"{menciones}¡Hay gente esperando en la calle, no los hagáis esperar!" if tarea.get('tipo') == 'taxi' \
-                                   else f"{menciones}El bus no se conduce solo, ¡arrancad ya!" if tarea.get('tipo') == 'bus_interurbano' \
-                                   else f"{menciones}Los trasnochadores necesitan volver a casa. ¡Moveros!" if tarea.get('tipo') == 'bus_urbano' \
-                                   else f"{menciones}Alguien importante requiere vuestros servicios. ¡Rápido!" if tarea.get('tipo') == 'cliente_vip' \
-                                   else f"{menciones}Se necesita fuerza y maña. ¡Al almacén ya mismo!" if tarea.get('tipo') == 'mudanza' \
-                                   else menciones
-                    
-                    # Enviar mensajes al canal
-                    await canal.send(embed=embed)
-                    if mensaje_texto:
-                        await canal.send(mensaje_texto)
-                    # Marcar como enviado
-                    tarea['enviado'] = True
-                    guardar_tareas(tareas)
+    try:
+        if CHANNEL_ID is None:
+            print("[revisar_tareas] CHANNEL_ID no configurado")
+            return
+        tareas = cargar_tareas()
+        ahora = datetime.now()
+        dia_actual = ahora.strftime('%A').lower()
+        hora_actual = ahora.strftime('%H:%M')
+        canal = bot.get_channel(CHANNEL_ID)
+        if canal is None:
+            print(f"[revisar_tareas] Canal con ID {CHANNEL_ID} no encontrado")
+            return
+        # Revisar cada día
+        for dia, lista_tareas in tareas.items():
+            if dia.lower() == dia_actual:
+                for tarea in lista_tareas:
+                    if tarea['hora'] == hora_actual and not tarea.get('enviado', False):
+                        # Crear embed personalizado
+                        embed = obtener_embed_tarea(tarea, hora_actual)
+                        # Mencionar rol si está configurado
+                        menciones = ""
+                        if ROLE_ID:
+                            rol = bot.get_guild(canal.guild.id).get_role(ROLE_ID) if canal.guild else None
+                            menciones = f"{rol.mention} " if rol else ""
+                        mensaje_texto = f"{menciones}¡Hay gente esperando en la calle, no los hagáis esperar!" if tarea.get('tipo') == 'taxi' \
+                                       else f"{menciones}El bus no se conduce solo, ¡arrancad ya!" if tarea.get('tipo') == 'bus_interurbano' \
+                                       else f"{menciones}Los trasnochadores necesitan volver a casa. ¡Moveros!" if tarea.get('tipo') == 'bus_urbano' \
+                                       else f"{menciones}Alguien importante requiere vuestros servicios. ¡Rápido!" if tarea.get('tipo') == 'cliente_vip' \
+                                       else f"{menciones}Se necesita fuerza y maña. ¡Al almacén ya mismo!" if tarea.get('tipo') == 'mudanza' \
+                                       else menciones
+                        # Enviar mensajes al canal
+                        await canal.send(embed=embed)
+                        if mensaje_texto:
+                            await canal.send(mensaje_texto)
+                        # Marcar como enviado
+                        tarea['enviado'] = True
+                        guardar_tareas(tareas)
+    except Exception as e:
+        print(f"[revisar_tareas ERROR] {e}")
+        import traceback
+        traceback.print_exc()
 
 # Comando para agregar una tarea
 @bot.command(name='addtarea')
