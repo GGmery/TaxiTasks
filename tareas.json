@@ -1,0 +1,898 @@
+{
+  "Monday": [
+    {
+      "nombre": "TAXI",
+      "hora": "03:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "06:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "12:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "15:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "20:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "22:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "09:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "19:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS URBANO",
+      "hora": "01:00",
+      "tipo": "bus_urbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "02:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "13:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "18:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "23:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "04:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "08:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "17:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "21:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "23:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    }
+  ],
+  "Tuesday": [
+    {
+      "nombre": "TAXI",
+      "hora": "03:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "06:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "12:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "15:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "20:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "22:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "09:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "19:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS URBANO",
+      "hora": "01:00",
+      "tipo": "bus_urbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "02:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "13:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "18:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "23:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "04:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "08:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "17:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "21:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "23:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    }
+  ],
+  "Wednesday": [
+    {
+      "nombre": "TAXI",
+      "hora": "03:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "06:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "12:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "15:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "20:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "22:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "09:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "19:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS URBANO",
+      "hora": "01:00",
+      "tipo": "bus_urbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "02:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "13:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "18:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "23:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "04:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "08:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "17:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "21:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "23:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    }
+  ],
+  "Thursday": [
+    {
+      "nombre": "TAXI",
+      "hora": "03:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "06:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "12:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "15:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "20:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "22:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "09:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "19:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS URBANO",
+      "hora": "01:00",
+      "tipo": "bus_urbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "02:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "13:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "18:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "23:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "04:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "08:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "17:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "21:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "23:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    }
+  ],
+  "Friday": [
+    {
+      "nombre": "TAXI",
+      "hora": "03:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "06:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "12:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "15:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "20:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "22:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "09:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "19:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS URBANO",
+      "hora": "01:00",
+      "tipo": "bus_urbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "02:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "13:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "18:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "23:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "04:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "08:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "17:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "21:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "23:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    }
+  ],
+  "Saturday": [
+    {
+      "nombre": "TAXI",
+      "hora": "03:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "06:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "12:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "15:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "20:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "22:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "09:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "19:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS URBANO",
+      "hora": "01:00",
+      "tipo": "bus_urbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "02:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "13:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "18:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "23:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "04:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "08:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "17:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "21:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "23:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    }
+  ],
+  "Sunday": [
+    {
+      "nombre": "TAXI",
+      "hora": "03:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "06:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "12:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "15:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "20:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "TAXI",
+      "hora": "22:00",
+      "tipo": "taxi",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "09:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS INTERURBANO",
+      "hora": "19:00",
+      "tipo": "bus_interurbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "BUS URBANO",
+      "hora": "01:00",
+      "tipo": "bus_urbano",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "02:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "13:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "18:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "CLIENTE VIP",
+      "hora": "23:00",
+      "tipo": "cliente_vip",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "04:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "08:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "17:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "21:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    },
+    {
+      "nombre": "MUDANZA",
+      "hora": "23:00",
+      "tipo": "mudanza",
+      "mensaje": "",
+      "enviado": false
+    }
+  ]
+}

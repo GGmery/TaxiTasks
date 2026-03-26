@@ -7,9 +7,6 @@
 config.json
 secrets.json
 
-# Archivos de tareas (pueden contener datos sensibles)
-tareas.json
-
 # Python
 __pycache__/
 *.py[cod]
