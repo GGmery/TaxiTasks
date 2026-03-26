@@ -26,6 +26,69 @@ def cargar_tareas():
             return json.load(f)
     return {}
 
+# Evento para responder a menciones sobre tareas próximas
+@bot.event
+async def on_message(message):
+    if message.author.bot:
+        return
+    # Si mencionan al bot y preguntan por tareas próximas
+    if bot.user in message.mentions and ("tarea" in message.content.lower() or "tareas" in message.content.lower()):
+        ahora = datetime.now()
+        tareas = cargar_tareas()
+        dia_actual = ahora.strftime('%A')
+        lista_tarea = tareas.get(dia_actual, [])
+        proximas = []
+        for tarea in lista_tarea:
+            hora_tarea = datetime.strptime(tarea['hora'], '%H:%M').replace(year=ahora.year, month=ahora.month, day=ahora.day)
+            minutos = int((hora_tarea - ahora).total_seconds() // 60)
+            if 0 <= minutos < 60:
+                proximas.append((minutos, tarea))
+        if proximas:
+            proximas.sort()
+            respuesta = "🟢 Sí, en las próximas tareas: \n"
+            for minutos, tarea in proximas:
+                tipo = tarea.get('tipo', 'general')
+                emoji = {
+                    'taxi': '🚕',
+                    'bus_interurbano': '🚌',
+                    'bus_urbano': '🚌',
+                    'cliente_vip': '🥂',
+                    'mudanza': '🚚'
+                }.get(tipo, '📋')
+                respuesta += f"{emoji} {tarea['nombre']} en {minutos} minuto{'s' if minutos != 1 else ''} (a las {tarea['hora']})\n"
+            await message.reply(respuesta)
+        else:
+            await message.reply("🔴 No hay tareas programadas en la próxima hora.")
+    else:
+        await bot.process_commands(message)
+import discord
+from discord.ext import commands, tasks
+import json
+from datetime import datetime, time
+import os
+from dotenv import load_dotenv
+
+# Cargar variables de entorno desde .env
+load_dotenv()
+
+# Configurar intenciones
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='!', intents=intents)
+
+# Variables globales
+TASKS_FILE = 'tareas.json'
+CHANNEL_ID = None  # Se configurará cuando se execute el comando setup
+ROLE_ID = None  # ID del rol a mencionar (se configurará con !setup)
+
+# Cargar tareas desde el archivo JSON
+def cargar_tareas():
+    if os.path.exists(TASKS_FILE):
+        with open(TASKS_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
 # Guardar tareas en el archivo JSON
 def guardar_tareas(tareas):
     with open(TASKS_FILE, 'w', encoding='utf-8') as f:
@@ -155,6 +218,10 @@ async def revisar_tareas():
                                    else f"{menciones}Se necesita fuerza y maña. ¡Al almacén ya mismo!" if tarea.get('tipo') == 'mudanza' \
                                    else menciones
                     
+                    # Enviar mensajes al canal
+                    await canal.send(embed=embed)
+                    if mensaje_texto:
+                        await canal.send(mensaje_texto)
                     # Marcar como enviado
                     tarea['enviado'] = True
                     guardar_tareas(tareas)
@@ -206,22 +273,66 @@ async def agregar_tarea(ctx, dia: str, hora: str, tipo: str, *, nombre: str):
 # Comando para ver todas las tareas
 @bot.command(name='listatareas')
 async def listar_tareas(ctx):
-    """Muestra todas las tareas configuradas"""
+    """Muestra todas las tareas configuradas del día"""
     tareas = cargar_tareas()
     
     if not tareas:
         await ctx.send("📭 No hay tareas configuradas")
         return
     
-    embed = discord.Embed(title="📋 Tareas Programadas", color=discord.Color.green())
+    # Emojis por tipo de servicio
+    emojis_tipo = {
+        'taxi': '🚕',
+        'bus_interurbano': '🚌',
+        'bus_urbano': '🚌',
+        'cliente_vip': '🥂',
+        'mudanza': '🚚'
+    }
     
-    for dia, lista_tarea in tareas.items():
-        contenido = ""
-        for tarea in lista_tarea:
-            contenido += f"• {tarea['hora']} - {tarea['nombre']}\n"
+    # Usar las tareas del lunes como referencia (todas los días son iguales)
+    lista_tarea = tareas.get('Monday', [])
+    
+    if not lista_tarea:
+        await ctx.send("📭 No hay tareas configuradas")
+        return
+    
+    # Agrupar tareas por hora
+    tareas_por_hora = {}
+    for tarea in lista_tarea:
+        hora = tarea['hora']
+        if hora not in tareas_por_hora:
+            tareas_por_hora[hora] = []
+        tareas_por_hora[hora].append({
+            'tipo': tarea.get('tipo', 'general'),
+            'nombre': tarea['nombre']
+        })
+    
+    # Ordenar horas
+    horas_ordenadas = sorted(tareas_por_hora.keys())
+    
+    # Crear embed
+    embed = discord.Embed(
+        title="⏰ TAREAS PROGRAMADAS",
+        description="📅 Rutina diaria de transporte",
+        color=discord.Color.from_rgb(255, 165, 0)  # Naranja
+    )
+    
+    # Agregar tareas por hora
+    for hora in horas_ordenadas:
+        lista_tareas_hora = tareas_por_hora[hora]
         
-        if contenido:
-            embed.add_field(name=dia, value=contenido, inline=False)
+        # Construir contenido
+        contenido = ""
+        for tarea in lista_tareas_hora:
+            tipo = tarea['tipo']
+            emoji = emojis_tipo.get(tipo, '📋')
+            contenido += f"{emoji} {tarea['nombre']}\n"
+        
+        # Título del campo con la cantidad
+        cantidad = len(lista_tareas_hora)
+        titulo_hora = f"🕐 {hora} - {cantidad} tarea{'s' if cantidad > 1 else ''}"
+        
+        embed.add_field(name=titulo_hora, value=contenido, inline=False)
     
     await ctx.send(embed=embed)
 
